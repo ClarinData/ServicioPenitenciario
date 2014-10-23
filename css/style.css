@@ -1,0 +1,69 @@
+
+body{
+	margin:0px;
+	padding:0px;
+	width: 1020px;
+}
+
+header {
+	padding:10px;
+	width: 1000px;
+	background:#ccc;
+	line-height: 10px;
+}
+
+h1 {
+	font-family: "Droid Serif";
+	font-size:36px;
+	font-weight: bold;
+	letter-spacing: -1,799999px;	
+}
+
+p {
+	margin: 0px;
+}
+
+section {
+	padding:10px;
+	width: 1000px;
+	height: 748px;
+	background:#ccc;
+}
+
+#referencias {
+	width:91px;
+	height:720px;
+	float: left;
+	background:blue;
+}
+
+#barras {
+	width:323px;
+	height:720px;
+	float: left;
+	background:green;
+}
+
+#mapa {
+	margin:0px;
+	width:586px;
+	height:720px;
+	background:red;
+	float: left;
+}
+
+footer {
+	padding:10px;
+	width: 1000px;
+	background:red;
+	overflow: hidden;
+}
+
+#data {
+	
+	float:left;
+}
+
+#fuentes {
+	float:right;
+}
