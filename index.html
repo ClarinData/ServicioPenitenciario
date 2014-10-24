@@ -5,34 +5,46 @@
 		<title>Sistema Penitenciarioooo</title>
 		<link rel="stylesheet" href="css/style.css">
 		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-		<script scr ="script/script.js"></script>
+		<script scr ="script/script.js"> </script>
 
 	</head>
 
 	<body>
 
 	<header>
-		<h1>Radiografía de las cárceles argentinas</h1>
-		<p>Aqui bajada explicativa de la dataViz</p>
+		<h1>Radiografía de las cárceles</h1>
 	</header>
 	
 	<section id="content">
-		<article id="referencias">
+		<!-- <article id="referencias">
 			<h3>Presos por penal</h3>
-		</article>
+		</article> -->
 		
 		<article id="mapa">
+			<h3>Cantidad de presos</h3>
 			<svg id="mapaPenales"> </svg>
 		</article>
 		
-		<article id="barras"> 
+		<article id="barras">
+			<h3>Otros indicadores</h3>
+			<div class="styled"> 
+			<select id="indicadores">
+    			<option value="1" selected> Presupuesto mensual por preso</option>
+    			<option value="2"> Muertos en penitenciaria </option>
+    			<option value="3" >Reincidentes</option>
+    			<option value="4"> No estudian </option>
+    			<option value="5"> No Trabajan </option>
+    			<option value="6"> No se capacitan </option>
+  			</select>
+			</div>
+		
 		</article>
 	</section>	
 
 	
 		<footer>
-			<p id="data">DESCARGAR DATOS</p>
-			<p id="fuentes">Fuentes</p>
+			<p id="data"><a href="#"> DESCARGAR DATOS </a></p>
+			<p id="fuentes"><a href="#">FUENTES</a></p>
 		</footer>
 	
 
