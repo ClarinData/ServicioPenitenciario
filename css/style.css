@@ -159,12 +159,22 @@ select {
 
 
 label {
+	
 	cursor: pointer;
 	padding-bottom: 15px;
 }
 
+#spfText{
+	font-weight:bold;
+	color:#147BC5;
+}
+
+#sppText{
+	color:#CD4242;
+	font-weight:bold;
+}
+
 input {
-	
 	/*float:right;*/
 	cursor: pointer;
 	margin-left:0px;
