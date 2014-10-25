@@ -135,3 +135,102 @@ select {
    background-size: 21px 27px;
    
 }
+
+/*ESTILOS RADIO*/
+
+#contentSelector{
+	width:90px;
+	height: 400px;
+	border-right:#CCCCCC 1px solid;
+	border-bottom:#CCCCCC 1px solid;
+	background:#FFFFFF;
+}
+
+.selector {
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	font-family:"Roboto";
+	width: 50px;
+	font-size:12px;
+	line-height:14px;
+	color:#797979;
+}
+
+
+label {
+	cursor: pointer;
+	padding-bottom: 15px;
+}
+
+input {
+	
+	/*float:right;*/
+	cursor: pointer;
+	margin-left:0px;
+	margin-bottom:5px;
+}
+
+#spf {
+	margin-top: 0px;
+	
+}
+
+#spp {
+	margin-top: 25px;
+}
+
+.separador {
+	width:80px;
+	padding-bottom: 15px;
+	border-bottom:#CCCCCC 1px dotted;
+}
+
+#ref {
+	padding-top: 30px;
+}
+
+#ref,p {
+	font-size:11px;
+	padding-bottom: 15px;
+}
+
+.ref {
+	padding-top: 0px;
+	padding-bottom: 5px;
+	width:70px;
+	text-align: center;
+	font-size:12px;
+	font-family: "Roboto";
+	font-weight:bold;
+	line-height: 12px;
+}
+/*input:checked  {
+	margin:30px 0px 3px 0px;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
