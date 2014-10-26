@@ -67,6 +67,15 @@ section {
 	float: left;
 }
 
+#aclaracion {
+	position:relative;
+	top:22%;
+	width: 85px;
+	font-family: "Roboto";
+	font-size: 11px;
+	color: #797979;
+}
+
 footer {
 	font-family:"Roboto";
 	font-size: 10px;
