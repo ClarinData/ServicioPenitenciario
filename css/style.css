@@ -220,27 +220,94 @@ input {
 }*/
 
 
+/*ESTILOS TOOLTIP*/
 
+#tooltip {
+	/*para borrar*/
+	position:absolute;
+	top:300px;
+	left:300px;
+	
+	font-family: "Roboto";
+	width: 216px;
+	border: 1px #CCCCCC solid;
+	background: #ffffff;
+	padding:8px;
+}
 
+#tooltipContainer {
+	width:216px;
+	height: 180px;
+}
 
+h4 {
+	text-transform:uppercase;
+	font-size:15px;
+	line-height:16px;
+	margin:0px;
+	}
 
+#presosTotales {
+	font-size: 13px;
+	font-weight:bold;
+	margin-top:5px;
+	padding:5px 10px 5px 10px;
+	color:#FFFFFF;
+	background:#000000;
+}
 
+#presosTotales span{
+	float:right;
+}
 
+.presosDetalle {
+	margin-top: 8px;
+	font-size: 13px;
+	
+}
 
+.presosDetalle span {
+	font-weight:bold;
+}
 
+#procesados{
+	text-align:right;
+	float:right;
+}
 
+#condenados {
+	float:left;
+}
 
+#condenadosPorcentaje {
+	line-height:400%;
+	font-size: 20px;
+	color:#C20505;	
+}
 
+#procesadosPorcentaje {
+	line-height:400%;
+	font-size: 20px;
+	color:#E79191;
+}
 
+#torta {
+	width: 92px;
+	height: 92px;
+	border:#e6e6e6 15px solid;
+	background:#FFFFFF;
+	-webkit-border-radius: 1000px;
+	-moz-border-radius: 1000px;
+	border-radius: 1000px;
+	position:relative;
+	left:22%;
+	top:25px;
+}
 
-
-
-
-
-
-
-
-
-
-
+#ano {
+	position: relative;
+	top:35%;
+	right:32%;
+	text-align:center;
+}
 
