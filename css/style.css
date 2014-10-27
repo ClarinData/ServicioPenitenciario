@@ -49,13 +49,7 @@ section {
 	/*background:blue;*/
 }
 
-#barras {
-	
-	width:346px;
-	height:720px;
-	float: left;
-	background:#f0f0f0;
-}
+
 
 #mapa {
 	border-top: dotted #ccc 1px;
@@ -124,7 +118,7 @@ select {
 
 .styled select {
    background: transparent;
-   width: 300px;
+   width: 308px;
    padding: 5px;
    font-family:"Roboto";
    font-weight:bold;
@@ -137,7 +131,7 @@ select {
 
 .styled{
    margin-left:18px;
-   width: 300px;
+   width: 308px;
    height: 34px;
    overflow: hidden;
    background: url(../images/flecha.jpg) no-repeat 96% white;
@@ -320,3 +314,53 @@ h4 {
 	text-align:center;
 }
 
+
+/*ESTILOS BARRAS*/
+
+#barras {
+	width:346px;
+	height:720px;
+	float: left;
+	background:#f0f0f0;
+}
+
+#barrasContainer {
+	height:600px;
+	padding:27px 19px 0px 19px;
+}
+
+#barrasProvincias {
+	font-family:"Roboto";
+	font-size:11px;
+	height:590px;
+	float:left;
+}
+
+#barrasPuras {
+	width:150px;
+	height:590px;
+	float:left;
+}
+
+#barrasNumeros {
+	font-family:"Roboto";
+	font-size:11px;
+	height:590px;
+	float:right;
+}
+
+
+[id|='bars'] {
+    width: 150px;
+    
+}
+[id|='bars'] .spf {
+    background-color: #0085C4;
+}
+[id|='bars'] .spp {
+    background-color: #C1272D;
+}
+[id|='bars'] .bar {
+    margin-bottom: 9px;
+    height: 15px; 
+}

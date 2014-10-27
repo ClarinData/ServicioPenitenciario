@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<meta charset = "utf-8">
-		<title>Sistema Penitenciarioooo</title>
+		<title>Sistema Penitenciario Argentino</title>
 		<link rel="stylesheet" href="css/style.css">
 		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-		<script scr ="script/script.js"> </script>
+		
 
 	</head>
 
@@ -65,14 +65,20 @@
 		<article id="barras">
 			<h3>Otros indicadores</h3>
 			<div class="styled"> 
-			<select id="indicadores">
-    			<option value="1" selected> Presupuesto mensual por preso</option>
-    			<option value="2"> Muertos en penitenciaria </option>
-    			<option value="3" >Reincidentes</option>
-    			<option value="4"> No estudian </option>
-    			<option value="5"> No Trabajan </option>
-    			<option value="6"> No se capacitan </option>
+			<select id="mySelect">
+    			<option value="Presos">Presos</option>
+          		<option value="Presupuesto">Presupuesto</option>
+          		<option value="Costo_Preso_Mes" selected>Costo Preso Mes</option>
+          		<option value="Reincidencia">Reincidencia</option>
+          		<option value="No_Trabaja">No Trabaja</option>
+          		<option value="No_Tuvo_Capacitación_Laboral">No Tuvo Capacitación Laboral</option>
+          		<option value="No_Estudia">No Estudia</option>
   			</select>
+			</div>
+			<div id="barrasContainer">
+				<div id="barrasProvincias"> </div>
+				<div id="barrasPuras"> </div>
+				<div id="barrasNumeros"> </div>
 			</div>
 		
 		</article>
@@ -85,7 +91,11 @@
 			<p id="data"><a href="#"> DESCARGAR DATOS </a></p>
 			<p id="fuentes"><a href="#">FUENTES</a></p>
 		</footer>
-	
+	 	<script src="http://d3js.org/d3.v3.min.js"></script>
+    	<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+    	<script src="http://d3js.org/topojson.v1.min.js"></script>
+    	<script src="http://d3js.org/queue.v1.min.js"></script>
+    	<script src="js/barras.js"></script>
 
 	</body>
 </html>
