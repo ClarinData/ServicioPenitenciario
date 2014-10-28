@@ -133,9 +133,9 @@ g.Ciudades.hidden {
     };
 
     var radiusMultiplier = {
-                        spf: .95,
-                        // spf: .41,
-                        spp: .41
+                        // spf: .95,
+                        spf: .50,
+                        spp: .50
                       };
 
     queue()
@@ -145,7 +145,6 @@ g.Ciudades.hidden {
         console.log(error || '');
 
         (function (g, projection, json) {
-
             g.selectAll("undefined")
                 .data(topojson.feature(json, json.objects.provincias).features)
                 .enter()
@@ -163,9 +162,19 @@ g.Ciudades.hidden {
                         zoom = (d.zoom) ? "zoomout" : "";
                     return "land " + classes + " " + name + " " + zoom;
                 }, true)
-                .attr("d", path)
-                .each(function (d) {
-                    d.centroid = path.centroid(d);
+                .attr("d", function (d) {
+                    switch (d.properties.administrative_area[0].id) {
+                        case "TDF":
+                            d.centroid = projection([-67.8515625,-54.43810280974017]);
+                            break;
+                        case "SAL":
+                            d.centroid = projection([-65.2972412109375,-25.28443774698303]);
+                            break;
+                        default:
+                            d.centroid = path.centroid(d);
+                    }                   
+
+                    return path(d);
                 })
                 .on("click", function (d) {
                     if (!d || (d && d.zoom)) {
@@ -176,7 +185,7 @@ g.Ciudades.hidden {
                                             [-width / 2, -height / 2],
                             thisPolygon = d3.select(this),
                             area = path.area(d),
-                            duration = 850;
+                            duration = 500;
 
                         map.transition()
                             .duration(duration)
@@ -215,16 +224,12 @@ g.Ciudades.hidden {
                                 return (!d) ? 0 : 1;
                             })
                             .selectAll("path")
-                            .each(function (g) {
-                                d3.select(this)
-                                    .transition()
-                                    .duration(850)
-                                    .attr("d", function(g) {
-                                        var m = (d) ? (23000/area)/zoom/7 : 0;
-                                            arc = (m) ? radiusCalc(m, g.data.total) : null;
-                                        return (d) ? arc(g) : '';
-                                    });
-
+                            .transition()
+                            .duration(duration)
+                            .attr("d", function(g) {
+                                var m = (d) ? (23000/area)/zoom/7 : 0;
+                                    arc = (m) ? radiusCalc(m, g.data.total) : null;
+                                return (d) ? arc(g) : '';
                             });
                     };
                     
