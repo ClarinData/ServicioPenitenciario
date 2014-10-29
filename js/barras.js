@@ -22,8 +22,13 @@ var es_ES = {
                 "No_Tuvo_Capacitación_Laboral": ES.numberFormat('%'),
                 "No_Estudia": ES.numberFormat('.1%'),
             },
-            convertToNumber = function (number) {
-              return (isNaN(number)) ? number : parseFloat(number);
+            formatData = function (data, format) {
+              var number = parseFloat(data),
+                  value = (data.match(/%/)) ? number/100 : number,
+                  prefix = d3.formatPrefix(value);
+              value = value || "Sin datos";
+              console.log(prefix)
+              return (isNaN(value)) ? value : format(value);
             };
         
         var BarsGenerator = (function (window, undefined) {
@@ -129,9 +134,7 @@ var es_ES = {
                 .enter()
                 .append("div")
                 .text(function(d) {
-                  console.log(selection)
-                  var value = (d[selection].match(/%/)) ? parseFloat(d[selection])/100 : parseFloat(d[selection]);
-                  return (isNaN(value)) ? d[selection] : formatNumber[selection](value);
+                  return formatData(d[selection],formatNumber[selection]);
                 });
 
             d3.select("#mySelect").on("change", function (d) {
@@ -139,8 +142,7 @@ var es_ES = {
                 BarsGenerator.update(myBars, selection, data);
                 console.log(selection)              
                 barrasNumeros.text(function (d) {
-                  var value = (d[selection].match(/%/)) ? parseFloat(d[selection])/100 : parseFloat(d[selection]);
-                  return (isNaN(value)) ? d[selection] : formatNumber[selection](value);
+                  return formatData(d[selection],formatNumber[selection]);
                 });
             });
 
