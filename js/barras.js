@@ -12,10 +12,19 @@ var es_ES = {
           "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
           "shortMonths": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
       };
-        var ES = d3.locale(es_ES);
-        var formatNumber = ES.numberFormat(',.');
-        
-        
+        var ES = d3.locale(es_ES),
+            formatNumber = {
+                "Presos": ES.numberFormat(','),
+                "Presupuesto": ES.numberFormat('$,'),
+                "Costo_Preso_Mes": ES.numberFormat('$,.2f'),
+                "Reincidencia": ES.numberFormat('.1%'),
+                "No_Trabaja": ES.numberFormat('.1%'),
+                "No_Tuvo_Capacitación_Laboral": ES.numberFormat('%'),
+                "No_Estudia": ES.numberFormat('.1%'),
+            },
+            convertToNumber = function (number) {
+              return (isNaN(number)) ? number : parseFloat(number);
+            };
         
         var BarsGenerator = (function (window, undefined) {
       
@@ -99,10 +108,6 @@ var es_ES = {
 
             var myBars = BarsGenerator.initialize(d3.select('#barrasPuras'),selection, data);
 
-            // myBars.text(function (d) {
-            //     return d.Presos;
-            // })
-
             var dataName = myBars
                             .data()
                             .map(function (d) {
@@ -118,24 +123,25 @@ var es_ES = {
                      return d;
                  });
 
-             d3.select("#barrasNumeros")
-                 .selectAll("div")
-                 .data(data)
-                 .enter()
-                 .append("div")
-                 .text(function (d) {
-                     return d[selection];
-                 });
+            var barrasNumeros = d3.select("#barrasNumeros")
+                .selectAll("div")
+                .data(data)
+                .enter()
+                .append("div")
+                .text(function(d) {
+                  console.log(selection)
+                  var value = (d[selection].match(/%/)) ? parseFloat(d[selection])/100 : parseFloat(d[selection]);
+                  return (isNaN(value)) ? d[selection] : formatNumber[selection](value);
+                });
 
             d3.select("#mySelect").on("change", function (d) {
                 var selection = d3.select("#mySelect").node().value;
                 BarsGenerator.update(myBars, selection, data);
-              
-                 d3.select("#barrasNumeros")
-                     .selectAll("div")
-                     .text(function (d) {
-                         return d[selection];
-                     });
+                console.log(selection)              
+                barrasNumeros.text(function (d) {
+                  var value = (d[selection].match(/%/)) ? parseFloat(d[selection])/100 : parseFloat(d[selection]);
+                  return (isNaN(value)) ? d[selection] : formatNumber[selection](value);
+                });
             });
 
         });
