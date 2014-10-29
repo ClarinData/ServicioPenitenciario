@@ -33,7 +33,9 @@
 		</div>
 		
 		<article id="mapa">
+			
 			<h3>Cantidad de presos</h3>
+			
 			<div id="contentSelector">
 				<div class="selector">
 					<form>
@@ -63,21 +65,50 @@
 		</article>
 		
 		<article id="barras">
+			
 			<h3>Otros indicadores</h3>
+		
 			<div class="styled"> 
 			<select id="mySelect">
-    			<option value="Presos">Presos</option>
-          		<option value="Presupuesto">Presupuesto</option>
-          		<option value="Costo_Preso_Mes" selected>Costo Preso Mes</option>
-          		<option value="Reincidencia">Reincidencia</option>
-          		<option value="No_Trabaja">No Trabaja</option>
-          		<option value="No_Tuvo_Capacitación_Laboral">No Tuvo Capacitación Laboral</option>
-          		<option value="No_Estudia">No Estudia</option>
+				<option value="Costo_Preso_Mes" selected>Presupuesto mensual por preso</option>
+    			<option value="Presos">Cantidad de presos</option>
+          		<option value="Presupuesto">Presupuesto para penitenciarías</option>
+          		<option value="Reincidencia">Reincidentes por jurisdicción</option>
+          		<option value="No_Trabaja">No trabajan dentro del penal</option>
+          		<option value="No_Tuvo_Capacitación_Laboral">No se capacitan</option>
+          		<option value="No_Estudia">No estudian dentro del penal</option>
   			</select>
 			</div>
 			<div id="barrasContainer">
 				<div id="barrasProvincias"> </div>
-				<div id="barrasPuras"> </div>
+					<div id="barrasPuras">
+						<div class="barsBlancas">
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+							<div> </div>
+						</div> 
+					</div>
 				<div id="barrasNumeros"> </div>
 			</div>
 		
@@ -91,10 +122,10 @@
 			<p id="data"><a href="#"> DESCARGAR DATOS </a></p>
 			<p id="fuentes"><a href="#">FUENTES</a></p>
 		</footer>
-	 	<script src="http://d3js.org/d3.v3.min.js"></script>
-    	<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
-    	<script src="http://d3js.org/topojson.v1.min.js"></script>
-    	<script src="http://d3js.org/queue.v1.min.js"></script>
+	 	<script src="js/d3.v3.min.js"></script>
+    	<script src="js/d3.geo.projection.v0.min.js"></script>
+    	<script src="js/topojson.v1.min.js"></script>
+    	<script src="js/queue.v1.min.js"></script>
     	<script src="js/barras.js"></script>
 
 	</body>
