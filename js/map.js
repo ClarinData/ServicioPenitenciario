@@ -1,5 +1,5 @@
 var width = 500,
-    height = 500,
+    height = 630,
 
     projection = d3.geo.transverseMercator()
     .center([2.5, -38.5])
@@ -155,7 +155,10 @@ queue()
             });
 
         var markerCenter = function(marker, r) {
-            var thisMarker = marker.append("g");
+            var thisMarker = marker.append("g")
+                                   .attr("class", function (d) {
+                                        return "circle " + d.Jurisdiccion.toLowerCase();
+                                   });
             thisMarker.append("circle")
                 .attr("class", "select")
                 .attr("r", r);
@@ -216,7 +219,8 @@ queue()
                                         );
 
                         (function (marker, arc) {
-                            markerCenter(marker, (level=='Provincias') ? 1.5 : 0.5);
+                            var centerCircleRadius = (parseInt(thisMarker.Total) == 0) ? 0 : (level=='Provincias') ? 1.5 : 0.5;
+                            markerCenter(marker, centerCircleRadius);
                             marker.append("circle")
                                 .attr("class", "inside")
                                 .attr("r", arc.innerRadius());
@@ -264,6 +268,7 @@ queue()
                             radiusCalc(radiusMultiplier[jurisdiccion], thisMarker.Total)
                         );
                     });
+                map.selectAll(".spp").classed("hidden", true);
             })(
                 g[level],
                 nestedData[level],
