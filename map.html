@@ -4,69 +4,72 @@
 body {
     font: 10px sans - serif;
 }
-svg {
+#map svg {
     overflow: hidden;
 }
-path.zoomout {
+#map path.zoomout {
   cursor: url(img/zoomin.cur), pointer;
   cursor: -webkit-zoom-in;
   cursor: -moz-zoom-in;
 }
-g.arc.hidden {
+#map g.arc.hidden {
     opacity: 0;
 }
-.land.transparent {
+#map g.circle.hidden {
+    opacity: 0;
+}
+#map .land.transparent {
     fill: rgba(0, 0, 0, 0);
     stroke: rgba(0, 0, 0, 1);
     stroke-width: .5px;
 }
-.land {
+#map .land {
     fill: rgba(160, 160, 160, 1);
     stroke: white;
     stroke-width: .5px;
 }
-.marker {
+#map .marker {
     pointer-events: none;
 }
-.marker .select {
+#map .marker .select {
     fill: black;
 }
-.marker .select.zoom circle {
+#map .marker .select.zoom circle {
     fill: none;
     stroke-miterlimit: 10;
 }
-.marker .active {
+#map .marker .active {
     display: block;
 }
-.marker .inside {
+#map .marker .inside {
     fill: rgba(0, 0, 0, 0);
 }
-.condenados.spf {
+#map .condenados.spf {
     fill: #0085C4;
     opacity: 0.8;
 }
-.procesados.spf {
+#map .procesados.spf {
     fill: #00E2FF;
     opacity: 0.8;
 }
-.condenados.spp {
+#map .condenados.spp {
     fill: #C1272D;
     opacity: 0.8;
 }
-.procesados.spp {
+#map .procesados.spp {
     fill: #ECBEC0;
     opacity: 0.8;
 }
-g.Provincias {
+#map g.Provincias {
     display: block;
 }
-g.Ciudades {
+#map g.Ciudades {
     display: block;
 }
-g.Provincias.hidden {
+#map g.Provincias.hidden {
     display: none;
 }
-g.Ciudades.hidden {
+#map g.Ciudades.hidden {
     display: none;
 }
 </style>
