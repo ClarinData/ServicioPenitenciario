@@ -28,6 +28,14 @@ h3 {
 	margin:15px 18px 18px 0px;
 }
 
+#bajada {
+	font-family: 'Roboto', sans-serif;
+	font-weight:300;
+	font-size:16px;
+	margin-bottom:0px;
+	padding-top:5px;
+}
+
 /*.titContainer {
 	margin:16px;
 	width: 200px;
@@ -79,9 +87,9 @@ option {
 }
 
 #aclaracion {
-	position:relative;
+	position:absolute;
 	float: rigth;
-	top:22%;
+	top:73%;
 	width: 85px;
 	font-family:"Roboto", sans-serif;
 	font-size: 11px;
@@ -389,9 +397,6 @@ h4 {
 	margin-bottom:9px;
 }
 
-div[html="Sin datos"] {
-	color:red;
-}
 .barsBlancas {
 	position: absolute;
 	z-index: 0;
@@ -451,9 +456,12 @@ div[html="Sin datos"] {
     stroke-width: .5px;
 }
 #map .land {
-    fill: rgba(160, 160, 160, 1);
+    fill: rgba(190, 190, 190, 1);
     stroke: white;
     stroke-width: .5px;
+}
+#map .land:hover {
+	 fill: rgba(190, 190, 190, .8);
 }
 #map .marker {
     pointer-events: none;
