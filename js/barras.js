@@ -15,8 +15,8 @@ var es_ES = {
         var ES = d3.locale(es_ES),
             formatNumber = {
                 "Presos": ES.numberFormat(','),
-                "Presupuesto": ES.numberFormat('$,'),
-                "Costo_Preso_Mes": ES.numberFormat('$,.2f'),
+                "Presupuesto": ES.numberFormat('$,.0f'),
+                "Costo_Preso_Mes": ES.numberFormat('$,.0f'),
                 "Reincidencia": ES.numberFormat('.1%'),
                 "No_Trabaja": ES.numberFormat('.1%'),
                 "No_Tuvo_Capacitación_Laboral": ES.numberFormat('%'),
@@ -27,7 +27,18 @@ var es_ES = {
                   value = (data.match(/%/)) ? number/100 : number,
                   prefix = d3.formatPrefix(value);
               value = value || "Sin datos";
-              console.log(prefix)
+              switch(prefix.symbol) {
+                case "M":
+                  value = format(prefix.scale(parseFloat(value))) + " M";
+                  break;
+                case "G":
+                  value = format(prefix.scale(parseFloat(value)*1000)) + " M";
+                  break;
+                case "T":
+                  value = format(prefix.scale(parseFloat(value))) + " B";
+                  break;
+                default:
+              };
               return (isNaN(value)) ? value : format(value);
             };
         
