@@ -80,6 +80,7 @@ option {
 
 #aclaracion {
 	position:relative;
+	float: rigth;
 	top:22%;
 	width: 85px;
 	font-family:"Roboto", sans-serif;
@@ -163,6 +164,7 @@ select {
 /*ESTILOS RADIO*/
 
 #contentSelector{
+	float: left;
 	width:90px;
 	height: 400px;
 	border-right:#CCCCCC 1px solid;
@@ -420,4 +422,80 @@ div[html="Sin datos"] {
 [id|='bars'] .bar {
     margin-bottom: 15px;
     height: 10px; 
+}
+
+/*ESTILOS BARRAS*/
+
+#map {
+	display: inline-block;
+	margin-left: 30px;
+}
+
+#map svg {
+    overflow: hidden;
+}
+#map path.zoomout {
+  cursor: url(img/zoomin.cur), pointer;
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+}
+#map g.arc.hidden {
+    opacity: 0;
+}
+#map g.circle.hidden {
+    opacity: 0;
+}
+#map .land.transparent {
+    fill: rgba(0, 0, 0, 0);
+    stroke: rgba(0, 0, 0, 1);
+    stroke-width: .5px;
+}
+#map .land {
+    fill: rgba(160, 160, 160, 1);
+    stroke: white;
+    stroke-width: .5px;
+}
+#map .marker {
+    pointer-events: none;
+}
+#map .marker .select {
+    fill: black;
+}
+#map .marker .select.zoom circle {
+    fill: none;
+    stroke-miterlimit: 10;
+}
+#map .marker .active {
+    display: block;
+}
+#map .marker .inside {
+    fill: rgba(0, 0, 0, 0);
+}
+#map .condenados.spf {
+    fill: #0085C4;
+    opacity: 0.8;
+}
+#map .procesados.spf {
+    fill: #00E2FF;
+    opacity: 0.8;
+}
+#map .condenados.spp {
+    fill: #C1272D;
+    opacity: 0.8;
+}
+#map .procesados.spp {
+    fill: #ECBEC0;
+    opacity: 0.8;
+}
+#map g.Provincias {
+    display: block;
+}
+#map g.Ciudades {
+    display: block;
+}
+#map g.Provincias.hidden {
+    display: none;
+}
+#map g.Ciudades.hidden {
+    display: none;
 }
