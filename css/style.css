@@ -111,7 +111,7 @@ footer a {
 }
 
 #data::before {
-   padding: 7px;
+   padding: 7px 7px 7px 0px;
    content: url(../images/descargar.jpg);
    vertical-align: -42%;
 }
@@ -387,6 +387,9 @@ h4 {
 	margin-bottom:9px;
 }
 
+div[html="Sin datos"] {
+	color:red;
+}
 .barsBlancas {
 	position: absolute;
 	z-index: 0;

@@ -146,7 +146,9 @@ var es_ES = {
                 .append("div")
                 .text(function(d) {
                   return formatData(d[selection],formatNumber[selection]);
+                
                 });
+                
 
             d3.select("#mySelect").on("change", function (d) {
                 var selection = d3.select("#mySelect").node().value;
