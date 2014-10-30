@@ -151,7 +151,6 @@ var es_ES = {
             d3.select("#mySelect").on("change", function (d) {
                 var selection = d3.select("#mySelect").node().value;
                 BarsGenerator.update(myBars, selection, data);
-                console.log(selection)              
                 barrasNumeros.text(function (d) {
                   return formatData(d[selection],formatNumber[selection]);
                 });
