@@ -20,7 +20,7 @@
 		<!-- <article id="referencias">
 			<h3>Presos por penal</h3>
 		</article> -->
-		<div id="tooltip">
+		<div id="tooltip" style="display:none;">
 			<h4>Complejo penitenciario federal. CABA</h4>
 			<div id="tooltipContainer">
 			<p id="presosTotales">Presos totales<span>20333</span></p>
@@ -59,12 +59,12 @@
 					</div>
 				</div>
 			</div>
+			<div id="map"></div>
 			<div id="aclaracion">
 				<img src="images/mano.jpg" alt="pointer" height="14" width="11"/><br />
 				Clickea en las provincias para ver los penales en detalle
 			</div>
 		</article>
-		
 		<article id="barras">
 			
 			<h3>Otros indicadores</h3>
@@ -128,6 +128,24 @@
     	<script src="js/topojson.v1.min.js"></script>
     	<script src="js/queue.v1.min.js"></script>
     	<script src="js/barras.js"></script>
+    	<script src="js/map.js"></script>
+    	<script type="text/javascript">
+    	map.selectAll(".spp").classed("hidden", true);
+
+    	var hideSppSpf = function (status) {
+    		map.selectAll(".spf").classed("hidden", !status);
+            map.selectAll(".spp").classed("hidden", status);
+    	};
+        d3.select("#back").on("click", function () {
+            groupMap.select("path").on("click").apply(this,null);
+        });
+        d3.select("#spf").on("click", function () {
+            hideSppSpf(true);
+        });
+        d3.select("#spp").on("click", function () {
+            hideSppSpf(false);
+        });
+    </script>
 
 	</body>
 </html>
