@@ -401,9 +401,8 @@ h4 {
 }
 
 #barrasNumeros div[data-info="0"]:after {
-	margin-bottom:9px;
-	color:red;
-	content: "Sin datos";
+	color: red;
+	content: "S/D";
 }
 
 .barsBlancas {
