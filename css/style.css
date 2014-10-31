@@ -268,6 +268,10 @@ input {
 	padding:8px;
 }
 
+#tooltip.hidden {
+	display: none;
+}
+
 #tooltipContainer {
 	width:216px;
 	height: 180px;
@@ -396,6 +400,12 @@ h4 {
 	margin-bottom:9px;
 }
 
+#barrasNumeros div[data-info="0"]:after {
+	margin-bottom:9px;
+	color:red;
+	content: "Sin datos";
+}
+
 .barsBlancas {
 	position: absolute;
 	z-index: 0;
@@ -429,6 +439,16 @@ h4 {
 }
 
 /*ESTILOS MAPA*/
+
+#back {
+	display: block;
+	left: 576px;
+	position: absolute;
+}
+
+#back.hidden {
+	display: none;
+}
 
 #map {
 	display: inline-block;
@@ -464,6 +484,9 @@ h4 {
 }
 #map .marker {
     pointer-events: none;
+}
+#map .marker .inside {
+	pointer-events: visible;
 }
 #map .marker .select {
     fill: black;
