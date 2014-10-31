@@ -26,7 +26,7 @@ var es_ES = {
               var number = parseFloat(data),
                   value = (data.match(/%/)) ? number/100 : number,
                   prefix = d3.formatPrefix(value);
-              value = value || "Sin datos";
+              value = value || "-";
               switch(prefix.symbol) {
                 case "M":
                   value = format(prefix.scale(parseFloat(value))) + " M";
@@ -144,18 +144,26 @@ var es_ES = {
                 .data(data)
                 .enter()
                 .append("div")
+                .attr("data-info", function (d) {
+                  return parseFloat(d[selection]);
+                })
                 .text(function(d) {
-                  return formatData(d[selection],formatNumber[selection]);
-                
+                  var data = formatData(d[selection],formatNumber[selection]);
+                  return (data == '-') ? "" : data;                
                 });
                 
 
             d3.select("#mySelect").on("change", function (d) {
                 var selection = d3.select("#mySelect").node().value;
                 BarsGenerator.update(myBars, selection, data);
-                barrasNumeros.text(function (d) {
-                  return formatData(d[selection],formatNumber[selection]);
-                });
+                barrasNumeros
+                  .attr("data-info", function (d) {
+                    return parseFloat(d[selection]);
+                  })
+                  .text(function (d) {
+                    var data = formatData(d[selection],formatNumber[selection]);
+                    return (data == '-') ? "" : data;
+                  });
             });
 
         });
