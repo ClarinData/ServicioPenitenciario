@@ -200,7 +200,7 @@ label {
 
 #spfText{
 	font-weight:700;
-	color:#147BC5;
+	color:#2464C5;
 }
 
 #sppText{
@@ -364,7 +364,6 @@ h4 {
 }
 
 #barrasProvincias {
-	
 	font-family:"Roboto", sans-serif;
 	font-size:12px;
 	height:590px;
@@ -416,12 +415,12 @@ h4 {
 }
 
 [id|='bars'] .spf {
-    background-color: #0085C4
+    background-color: #2464C5;
  
 }
 
 [id|='bars'] .spp {
-    background-color: #C1272D;
+    background-color: #CD4242;
 }
 
 [id|='bars'] .bar {
@@ -456,7 +455,7 @@ h4 {
     stroke-width: .5px;
 }
 #map .land {
-    fill: rgba(190, 190, 190, 1);
+    fill: rgba(195, 195, 195, 1);
     stroke: white;
     stroke-width: .5px;
 }
@@ -480,19 +479,23 @@ h4 {
     fill: rgba(0, 0, 0, 0);
 }
 #map .condenados.spf {
-    fill: #0085C4;
+    fill: #000000;
+    stroke:#ffffff;
+    stroke-width: .1px;
     opacity: 0.8;
 }
 #map .procesados.spf {
-    fill: #00E2FF;
+    fill: #2464C5;
+    stroke:#ffffff;
+    stroke-width: .1px;
     opacity: 0.8;
 }
 #map .condenados.spp {
-    fill: #C1272D;
+    fill: #000000;
     opacity: 0.8;
 }
 #map .procesados.spp {
-    fill: #ECBEC0;
+    fill: #CD4242;
     opacity: 0.8;
 }
 #map g.Provincias {
