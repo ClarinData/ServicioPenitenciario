@@ -87,9 +87,9 @@ option {
 }
 
 #aclaracion {
-	position:absolute;
+	position:relative;
 	float: rigth;
-	top:73%;
+	bottom:10%;
 	width: 85px;
 	font-family:"Roboto", sans-serif;
 	font-size: 11px;
@@ -444,6 +444,7 @@ h4 {
 	display: block;
 	left: 576px;
 	position: absolute;
+	cursor:pointer;
 }
 
 #back.hidden {
@@ -480,7 +481,7 @@ h4 {
     stroke-width: .5px;
 }
 #map .land:hover {
-	 fill: rgba(190, 190, 190, .8);
+	 fill: rgba(195, 195, 195, .8);
 }
 #map .marker {
     pointer-events: none;
