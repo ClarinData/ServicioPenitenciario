@@ -42,6 +42,11 @@ var radiusCalc = function (value, total) {
             .innerRadius(radius);
     };
 
+var backBtn = d3.select("#back")
+                .on("click", function () {
+                    groupMap.select("path").on("click").apply(this,null);
+                });
+
 queue()
   .defer(d3.json, "data/argentina_indec.json")
   .defer(d3.tsv, "data/condenados_procesados.tsv")
@@ -90,6 +95,8 @@ queue()
                         thisPolygon = d3.select(this),
                         area = path.area(d),
                         duration = 500;
+
+                    backBtn.classed("hidden", !zoom);
 
                     map.transition()
                         .duration(duration)
@@ -221,9 +228,6 @@ queue()
                         (function (marker, arc) {
                             var centerCircleRadius = (parseInt(thisMarker.Total) == 0) ? 0 : (level=='Provincias') ? 1.5 : 0.5;
                             markerCenter(marker, centerCircleRadius);
-                            marker.append("circle")
-                                .attr("class", "inside")
-                                .attr("r", arc.innerRadius());
                             (function (g) {
                                 g.append("path")
                                     .attr("d", function(d) {
@@ -268,7 +272,9 @@ queue()
                             radiusCalc(radiusMultiplier[jurisdiccion], thisMarker.Total)
                         );
                     });
-                map.selectAll(".spp").classed("hidden", true);
+                map.selectAll(".spp")
+                    .classed("hidden", true);
+
             })(
                 g[level],
                 nestedData[level],
