@@ -30,7 +30,7 @@
 			<p class="presosDetalle" id="condenados">Condenados<br /><span>20333</span><br /><span id="condenadosPorcentaje">70%</span></p>
 			<p class="presosDetalle" id="procesados">Procesados<br /><span>20333</span><br /><span id="procesadosPorcentaje">30%</span></p>
 			<div id="torta">
-				<p id="ano">Año 2012</p>
+				<p id="ano">Año 2013</p>
 			</div>
 			</div>
 			
@@ -135,22 +135,32 @@
     	<script src="js/barras.js"></script>
     	<script src="js/map.js"></script>
     	<script type="text/javascript">
-    	map.selectAll(".spp").classed("hidden", true);
+    	map.selectAll(".spp")
+    		.classed("hidden", true);
 
-    	var hideSppSpf = function (status) {
-    		map.selectAll(".spf").classed("hidden", !status);
-            map.selectAll(".spp").classed("hidden", status);
+    	var hideSppSpf = function(status) {
+    		map.selectAll(".spf")
+    			.classed("hidden", !status);
+    		map.selectAll(".spp")
+    			.classed("hidden", status);
     	};
-        d3.select("#back").on("click", function () {
-            groupMap.select("path").on("click").apply(this,null);
-        });
-        d3.select("#spf").on("click", function () {
-            hideSppSpf(true);
-        });
-        d3.select("#spp").on("click", function () {
-            hideSppSpf(false);
-        });
-        d3.select("#alerta").style("display", "none");
+
+    	d3.select("#back")
+    		.on("click", function() {
+    			groupMap.select("path")
+    				.on("click")
+    				.apply(this, null);
+    		});
+    	d3.select("#spf")
+    		.on("click", function() {
+    			hideSppSpf(true);
+    		});
+    	d3.select("#spp")
+    		.on("click", function() {
+    			hideSppSpf(false);
+    		});
+    	d3.select("#alerta")
+    		.style("display", "none");
     </script>
 
 	</body>
