@@ -32,6 +32,7 @@ h3 {
 	font-family: 'Roboto', sans-serif;
 	font-weight:300;
 	font-size:16px;
+	line-height:20px;
 	margin-bottom:0px;
 	padding-top:5px;
 }
@@ -401,7 +402,9 @@ h4 {
 }
 
 #barrasNumeros div[data-info="0"]:after {
-	color: red;
+	color: #797979;
+	font-family: 'Roboto', sans-serif;
+	font-weight:300;
 	content: "S/D";
 }
 
