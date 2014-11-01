@@ -146,8 +146,10 @@ queue()
                         .selectAll("path")
                         .transition()
                         .duration(duration)
+                        .ease("cubic")
                         .attr("d", function(g) {
-                            var m = (d) ? (37000/area)/zoom/6 : 0;
+                            var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6;
+                            var m = (d) ? (37000/area)/zoom/ajust : 0;
                                 arc = (m) ? radiusCalc(m, g.data.total) : null;
                             return (d) ? arc(g) : '';
                         });
@@ -274,8 +276,7 @@ queue()
                                     .attr("id", thisMarker.id)
                                     .attr("class", "marker")
                                     .on("click", function(d) {
-                                        // console.log(!select.classed("active") && d);
-                                        // select.classed("active", !select.classed("active"));
+                                        console.log(!select.classed("active") && d);
                                     }),
                             // arc =
                             radiusCalc(radiusMultiplier[jurisdiccion], thisMarker.Total)
@@ -283,8 +284,11 @@ queue()
                     });
 
             })(
+                // var g =
                 g[level],
+                // var data =
                 nestedData[level],
+                // var levelRatio =
                 (level=='Provincias') ? 30 : 1000
             );
 
@@ -292,7 +296,9 @@ queue()
         });
 
     })(
+        // var g =
         groupData,
+        // var projection =
         projection,
         data[1]
     );
@@ -302,7 +308,7 @@ queue()
     d3.select(self.frameElement)
         .style("height", height + "px");
 
-    /* Default marker ON & OFF by Form value */
+    /* Default marker ON & OFF from FORM defaul value */
 
     (function(formSelectorValue) {
         map.selectAll(".spp,.spf")
@@ -310,6 +316,7 @@ queue()
                 return (d.Jurisdiccion || d.data.domain).toLowerCase() != formSelectorValue;
             });
     })(
+        // var formSelectorValue =
         d3.select("#formSelector input[type='radio']:checked").property("value")
     );
 
