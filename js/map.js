@@ -136,23 +136,42 @@ queue()
                             return (d) ? 0 : 1;
                         });
 
-                    groupData['Ciudades']
-                        .transition()
-                        .duration(duration)
-                        .ease("cubic")
-                        .style("opacity", function () {
-                            return (!d) ? 0 : 1;
-                        })
-                        .selectAll("path")
-                        .transition()
-                        .duration(duration)
-                        .ease("cubic")
-                        .attr("d", function(g) {
-                            var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6;
-                            var m = (d) ? (37000/area)/zoom/ajust : 0;
-                                arc = (m) ? radiusCalc(m, g.data.total) : null;
-                            return (d) ? arc(g) : '';
-                        });
+                    var cities =groupData['Ciudades']
+                                    .transition()
+                                    .duration(duration)
+                                    .ease("cubic")
+                                    .style("opacity", function () {
+                                        return (!d) ? 0 : 1;
+                                    });
+
+                    cities.selectAll("path")
+                            .transition()
+                            .duration(duration)
+                            .ease("cubic")
+                            .attr("d", function(g) {
+                                var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
+                                    m = (d) ? (37000/area)/zoom/ajust : 0,
+                                    arc = (m) ? radiusCalc(m, g.data.total) : null;
+                                return (d) ? arc(g) : '';
+                            })
+                            .style("stroke-width", function(g) {
+                                var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
+                                    m = (d) ? (37000/area)/zoom/ajust : 0,
+                                    width = 0.3;
+                                return (d) ? width*m : 0;
+                            });
+
+                    cities.selectAll("circle.select")
+                            .transition()
+                            .duration(duration)
+                            .ease("cubic")
+                            .attr("r", function(g) {
+                                var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 33 : 2,
+                                    m = (d) ? (37000/area)/zoom/ajust : 0,
+                                    r = 0.5;
+                                    console.log(m,r)
+                                return (d) ? r*m : 0;
+                            });
                 };
                 
             });

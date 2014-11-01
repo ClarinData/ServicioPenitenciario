@@ -467,21 +467,25 @@ h4 {
 #map .condenados.spf {
     fill: #000000;
     stroke: #ffffff;
-    stroke-width: .1px;
+    stroke-width: .3px;
     opacity: 0.8;
 }
 #map .procesados.spf {
     fill: #2464C5;
     stroke: #ffffff;
-    stroke-width: .1px;
+    stroke-width: .3px;
     opacity: 0.8;
 }
 #map .condenados.spp {
     fill: #000000;
+    stroke: none;
+    stroke-width: .3px;
     opacity: 0.8;
 }
 #map .procesados.spp {
     fill: #CD4242;
+    stroke: none;
+    stroke-width: .3px;
     opacity: 0.8;
 }
 #map g.Provincias {
