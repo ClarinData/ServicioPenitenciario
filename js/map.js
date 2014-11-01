@@ -54,8 +54,17 @@ queue()
     console.log(error || '');
 
     (function (g, projection, json) {
+        var mapData = topojson
+                        .feature(json, json.objects.provincias)
+                        .features
+                        .sort(function (d) {
+                            return (d.properties.administrative_area[0].id == "AMBA") ? 1 : 0;
+                        });
+
         g.selectAll("undefined")
-            .data(topojson.feature(json, json.objects.provincias).features)
+            .data(mapData, function (d) {
+                return d.properties.administrative_area[0].id;
+            })
             .enter()
             .append("path")
             .attr("class", function(d) {
@@ -272,14 +281,13 @@ queue()
                             radiusCalc(radiusMultiplier[jurisdiccion], thisMarker.Total)
                         );
                     });
-                map.selectAll(".spp")
-                    .classed("hidden", true);
 
             })(
                 g[level],
                 nestedData[level],
                 (level=='Provincias') ? 30 : 1000
             );
+
 
         });
 
@@ -289,6 +297,20 @@ queue()
         data[1]
     );
 
-    d3.select(self.frameElement).style("height", height + "px");
+    /* Ajust heigth */
+
+    d3.select(self.frameElement)
+        .style("height", height + "px");
+
+    /* Default marker ON & OFF by Form value */
+
+    (function(formSelectorValue) {
+        map.selectAll(".spp,.spf")
+            .classed("hidden", function(d) {
+                return (d.Jurisdiccion || d.data.domain).toLowerCase() != formSelectorValue;
+            });
+    })(
+        d3.select("#formSelector input[type='radio']:checked").property("value")
+    );
 
 });
