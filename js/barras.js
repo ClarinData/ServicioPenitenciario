@@ -117,7 +117,7 @@ var es_ES = {
           .defer(d3.tsv, "data/estadisticas_jurisdiccionales.tsv")
           .awaitAll(function(error, data) {
             data = data[0].sort(function (a,b) {
-                return (a.Jurisdiccion.toLowerCase() == 'spf') ? -1 : d3.ascending(a.Provincia, b.Provincia);
+                return d3.ascending(a.Jurisdiccion, b.Jurisdiccion) || d3.ascending(a.Provincia, b.Provincia);
             });
 
             var selection = d3.select("#mySelect").node().value;
