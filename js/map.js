@@ -322,11 +322,6 @@ queue()
         data[1]
     );
 
-    /* Ajust heigth */
-
-    d3.select(self.frameElement)
-        .style("height", height + "px");
-
     /* Default marker ON & OFF from FORM defaul value */
 
     (function(formSelectorValue) {
