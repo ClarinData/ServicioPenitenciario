@@ -1,4 +1,4 @@
-Jurisdiccion	Provincia	Año_Informe_Presos	Presos	Presupuesto	Costo_Preso_Mes	Reincidencia	No_Trabaja	No_Tuvo_Capacitación_Laboral	No_Estudia
+﻿Jurisdiccion	Provincia	Año_Informe_Presos	Presos	Presupuesto	Costo_Preso_Mes	Reincidencia	No_Trabaja	No_Tuvo_Capacitación_Laboral	No_Estudia
 SPP	Buenos Aires	2014	33166	3952977842	9,932.30	24.40%	64.00%	75.00%	60.00%
 SPP	Catamarca	2013	454	0	0.00	19.20%	49.00%	79.00%	67.70%
 SPP	Chaco	2013	1061	147000000	11,545.71	10.00%	96.10%	75.00%	66.50%
@@ -6,7 +6,7 @@ SPP	Chubut	2014	519	0	0.00	21.40%	81.00%	85.00%	73.60%
 SPP	Corrientes	2013	851	445500	43.63	13.00%	45.00%	93.00%	79.10%
 SPP	Córdoba	2013	6977	784901000	9,374.86	48.00%	66.00%	82.00%	51.00%
 SPP	Entre Ríos	2013	1060	190837000	15,002.91	16.00%	48.00%	77,00%	73.90%
-SPF	Federal (spf)	2014	10322	3691052459	29,799.24	30.20%	24.00%	78.00%	14.30%
+SPF	S. P. Federal	2014	10322	3691052459	29,799.24	30.20%	24.00%	78.00%	14.30%
 SPP	Formosa	2013	329	446000	112.97	12.00%	67.00%	21.00%	18.00%
 SPP	Jujuy	2013	566	0	0.00	10.00%	75.80%	68.00%	47.30%
 SPP	La Pampa	2013	190	11457901	5,025.40	53.00%	94.00%	100.00%	91.00%
