@@ -484,7 +484,7 @@ h4 {
     overflow: hidden;
 }
 #map path.zoomout {
-  cursor: url(img/zoomin.cur), pointer;
+  cursor: url(images/zoomin.cur), pointer;
   cursor: -webkit-zoom-in;
   cursor: -moz-zoom-in;
 }
