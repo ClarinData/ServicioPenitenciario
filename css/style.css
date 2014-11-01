@@ -1,3 +1,23 @@
+#alerta {
+	border:solid 1px #cccccc;
+	position:absolute;
+	width:1000px;
+	height:780px;
+	background:white;
+	z-index: 1500;
+	margin:0px 10px 10px 10px;
+}
+	
+
+#alerta p {
+	width:500px;
+	height:360px;
+	padding-top:25%;
+	padding-left:25%;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight:300;
+	font-size:25px;
+}
 
 body{
 	margin:0px;
@@ -30,12 +50,13 @@ h3 {
 
 #bajada {
 	font-family: 'Roboto', sans-serif;
-	font-weight:300;
+	font-weight:400;
 	font-size:16px;
 	line-height:20px;
 	margin-bottom:0px;
-	padding-top:5px;
+	padding-top:0px;
 }
+
 
 /*.titContainer {
 	margin:16px;
@@ -60,6 +81,7 @@ section {
 	padding:1px 10px 0px 10px;
 	width: 1000px;
 	height: 735px;
+	overflow:hidden;
 	/*background:#ccc;*/
 }
 

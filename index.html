@@ -8,6 +8,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Droid+Serif:700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/style.css">
 		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		
 	</head>
 
 	<body>
@@ -16,8 +17,9 @@
 		<h1>Radiografía de las cárceles</h1>
 		<p id="bajada">Mapa del Servicio Penitenciario Federal y de los Servicios Penitenciarios provinciales. Incluye presupuesto por preso, porcentaje de reincidencia y datos de trabajo, estudio y capacitacion en cada jurisdicción. Investigacion del equipo de Clarín Data.</p>
 	</header>
-	
+	<div id="alerta"><p>Tu navegador no es compatible con la tecnología que usamos para esta visulizacion. Te recomendamos que uses las últimas versiones de los navegadores. Disculpas!</p></div>
 	<section id="content">
+		
 		<!-- <article id="referencias">
 			<h3>Presos por penal</h3>
 		</article> -->
@@ -148,6 +150,7 @@
         d3.select("#spp").on("click", function () {
             hideSppSpf(false);
         });
+        d3.select("#alerta").style("display", "none");
     </script>
 
 	</body>
