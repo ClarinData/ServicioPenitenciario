@@ -1,63 +1,55 @@
 #alerta {
-	border:solid 1px #cccccc;
-	position:absolute;
-	width:1000px;
-	height:780px;
-	background:white;
-	z-index: 1500;
-	margin:0px 10px 10px 10px;
+    border: solid 1px #cccccc;
+    position: absolute;
+    width: 1000px;
+    height: 780px;
+    background: white;
+    z-index: 1500;
+    margin: 0px 10px 10px 10px;
 }
-	
-
 #alerta p {
-	width:500px;
-	height:360px;
-	padding-top:25%;
-	padding-left:25%;
-	font-family: 'Roboto Condensed', sans-serif;
-	font-weight:300;
-	font-size:25px;
+    width: 500px;
+    height: 360px;
+    padding-top: 25%;
+    padding-left: 25%;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    font-size: 25px;
 }
-
-body{
-	margin:0px;
-	padding:0px;
-	width: 1020px;
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 1020px;
 }
-
 header {
-	padding:10px 10px 1px 10px;
-	width: 1000px;
-	/*background:#ccc;*/
-	line-height: 10px;
+    padding: 10px 10px 1px 10px;
+    width: 1000px;
+    /*background:#ccc;*/
+    
+    line-height: 10px;
 }
-
 h1 {
-	font-family: "Droid Serif", Georgia;
-	font-size:36px;
-	font-weight: 700;
-	letter-spacing: -1,799999px;	
+    font-family: "Droid Serif", Georgia;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1, 799999px;
 }
-
 h3 {
-	font-family: 'Roboto Condensed', sans-serif;
-	font-weight:300;
-	font-size:20px;
-	text-transform:uppercase;
-	color: #000000;
-	margin:15px 18px 18px 0px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #000000;
+    margin: 15px 18px 18px 0px;
 }
-
 #bajada {
-	font-family: 'Roboto', sans-serif;
-	font-weight:400;
-	font-size:16px;
-	line-height:20px;
-	margin-bottom:0px;
-	padding-top:0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 0px;
+    padding-top: 0px;
 }
-
-
 /*.titContainer {
 	margin:16px;
 	width: 200px;
@@ -68,425 +60,368 @@ h3 {
 }*/
 
 #barras h3 {
-	
-	padding-left: 18px;
+    padding-left: 18px;
 }
-
-
 #contentSelector p {
-	margin: 0px;
+    margin: 0px;
 }
-
 section {
-	padding:1px 10px 0px 10px;
-	width: 1000px;
-	height: 735px;
-	overflow:hidden;
-	/*background:#ccc;*/
+    padding: 1px 10px 0px 10px;
+    width: 1000px;
+    height: 735px;
+    overflow: hidden;
+    /*background:#ccc;*/
 }
-
 option {
-	border-bottom: 1px solid #CCCCCC;
-	
+    border-bottom: 1px solid #CCCCCC;
 }
-
 #referencias {
-	width:91px;
-	height:720px;
-	float: left;
-	/*background:blue;*/
+    width: 91px;
+    height: 720px;
+    float: left;
+    /*background:blue;*/
 }
-
-
-
 #mapa {
-	border-top: dotted #ccc 1px;
-	border-bottom: dotted #ccc 1px;
-	margin-right:30px;
-	width:623px;
-	height:720px;
-	/*background:red;*/
-	float: left;
+    border-top: dotted #ccc 1px;
+    border-bottom: dotted #ccc 1px;
+    margin-right: 30px;
+    width: 623px;
+    height: 720px;
+    /*background:red;*/
+    
+    float: left;
 }
-
 #aclaracion {
-	position:relative;
-	float: rigth;
-	bottom:10%;
-	width: 85px;
-	font-family:"Roboto", sans-serif;
-	font-size: 11px;
-	color: #797979;
+    position: relative;
+    float: rigth;
+    bottom: 10%;
+    width: 85px;
+    font-family: "Roboto", sans-serif;
+    font-size: 11px;
+    color: #797979;
 }
-
 footer {
-	font-family:"Roboto", sans-serif;
-	font-size: 10px;
-	text-transform:uppercase;
-	padding:0px 10px 10px 10px;
-	width: 1000px;
-	/*background:red;*/
-	overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 0px 10px 10px 10px;
+    width: 1000px;
+    /*background:red;*/
+    
+    overflow: hidden;
 }
-
 footer p {
-	margin:0px;
+    margin: 0px;
 }
-
 footer a {
-	color:black;
-	text-decoration:none;
+    color: black;
+    text-decoration: none;
 }
-
 #data {
-	float:left;
+    float: left;
 }
-
 #data::before {
-   padding: 7px 7px 7px 0px;
-   content: url(../images/descargar.jpg);
-   vertical-align: -42%;
+    padding: 7px 7px 7px 0px;
+    content: url(../images/descargar.jpg);
+    vertical-align: -42%;
 }
-
-
 #fuentes {
-	float:right;
+    float: right;
 }
-
-
 /*ESTILOS SELECT*/
 
-select::-ms-expand {  /*explorer*/
+select::-ms-expand {
+    /*explorer*/
+    
     display: none;
 }
-
 select {
-	-webkit-appearance:none; /*chrome*/
-   -moz-appearance:none; /*mozilla*/
-   text-indent: 0.01px;	/*mozilla*/
-    text-overflow: '';	/*mozilla*/
-    appearance:none;
-	
+    -webkit-appearance: none;
+    /*chrome*/
+    
+    -moz-appearance: none;
+    /*mozilla*/
+    
+    text-indent: 0.01px;
+    /*mozilla*/
+    
+    text-overflow: '';
+    /*mozilla*/
+    
+    appearance: none;
 }
-
 .styled select {
-   background: transparent;
-   width: 308px;
-   padding: 5px;
-   font-family:"Roboto", sans-serif;
-   font-weight:900;
-   font-size: 15px;
-   border: 1px solid #ccc;
-   height: 34px;
-   cursor: pointer;
-   
-} 
-
-.styled{
-   margin-left:18px;
-   width: 308px;
-   height: 34px;
-   overflow: hidden;
-   background: url(../images/flecha2.jpg) no-repeat 96% white;
-   background-size: 21px 18px;
-   
+    background: transparent;
+    width: 308px;
+    padding: 5px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    height: 34px;
+    cursor: pointer;
 }
-
+.styled {
+    margin-left: 18px;
+    width: 308px;
+    height: 34px;
+    overflow: hidden;
+    background: url(../images/flecha2.jpg) no-repeat 96% white;
+    background-size: 21px 18px;
+}
 /*ESTILOS RADIO*/
 
-#contentSelector{
-	float: left;
-	width:90px;
-	height: 400px;
-	border-right:#CCCCCC 1px solid;
-	border-bottom:#CCCCCC 1px solid;
-	background:#FFFFFF;
+#contentSelector {
+    float: left;
+    width: 90px;
+    height: 400px;
+    border-right: #CCCCCC 1px solid;
+    border-bottom: #CCCCCC 1px solid;
+    background: #FFFFFF;
 }
-
 .selector {
-	-webkit-user-select: none; /* Chrome/Safari */        
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* IE10+ */
-	font-family:"Roboto", sans-serif;	
-	width: 50px;
-	font-size:12px;
-	line-height:14px;
-	color:#797979;
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    
+    -moz-user-select: none;
+    /* Firefox */
+    
+    -ms-user-select: none;
+    /* IE10+ */
+    
+    font-family: "Roboto", sans-serif;
+    width: 50px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #797979;
 }
-
-
 label {
-	
-	cursor: pointer;
-	padding-bottom: 15px;
+    cursor: pointer;
+    padding-bottom: 15px;
 }
-
-#spfText{
-	font-weight:700;
-	color:#2464C5;
+#spfText {
+    font-weight: 700;
+    color: #2464C5;
 }
-
-#sppText{
-	color:#CD4242;
-	font-weight:700;
+#sppText {
+    color: #CD4242;
+    font-weight: 700;
 }
-
 input {
-	/*float:right;*/
-	cursor: pointer;
-	margin-left:0px;
-	margin-bottom:5px;
+    /*float:right;*/
+    
+    cursor: pointer;
+    margin-left: 0px;
+    margin-bottom: 5px;
 }
-
 #spf {
-	margin-top: 0px;
-	
+    margin-top: 0px;
 }
-
 #spp {
-	margin-top: 25px;
+    margin-top: 25px;
 }
-
 .separador {
-	width:80px;
-	padding-bottom: 15px;
-	border-bottom:#CCCCCC 1px dotted;
+    width: 80px;
+    padding-bottom: 15px;
+    border-bottom: #CCCCCC 1px dotted;
 }
-
 #ref {
-	padding-top: 30px;
+    padding-top: 30px;
 }
-
-#ref,p {
-	font-size:11px;
-	padding-bottom: 15px;
+#ref, p {
+    font-size: 11px;
+    padding-bottom: 15px;
 }
-
 .ref {
-	padding-top: 0px;
-	padding-bottom: 5px;
-	width:70px;
-	text-align: center;
-	font-size:12px;
-	font-family:"Roboto", sans-serif;
-	font-weight:700;
-	line-height: 12px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    width: 70px;
+    text-align: center;
+    font-size: 12px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    line-height: 12px;
 }
 /*input:checked  {
 	margin:30px 0px 3px 0px;
 }*/
-
-
 /*ESTILOS TOOLTIP*/
 
 #tooltip {
-	/*para borrar*/
-	position:absolute;
-	top:300px;
-	left:300px;
-	font-family:"Roboto", sans-serif;
-	width: 216px;
-	border: 1px #CCCCCC solid;
-	background: #ffffff;
-	padding:8px;
+    /*para borrar*/
+    
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    font-family: "Roboto", sans-serif;
+    width: 216px;
+    border: 1px #CCCCCC solid;
+    background: #ffffff;
+    padding: 8px;
 }
-
 #tooltip.hidden {
-	display: none;
+    display: none;
 }
-
 #tooltipContainer {
-	width:216px;
-	height: 180px;
+    width: 216px;
+    height: 180px;
 }
-
 h4 {
-	text-transform:uppercase;
-	font-size:15px;
-	line-height:16px;
-	margin:0px;
-	}
-
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 16px;
+    margin: 0px;
+}
 #presosTotales {
-	font-size: 13px;
-	font-weight:700;
-	margin-top:5px;
-	margin-bottom:0px;
-	padding:5px 10px 5px 10px;
-	color:#FFFFFF;
-	background:#000000;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    padding: 5px 10px 5px 10px;
+    color: #FFFFFF;
+    background: #000000;
 }
-
-#presosTotales span{
-	float:right;
+#presosTotales span {
+    float: right;
 }
-
 .presosDetalle {
-	margin-top: 8px;
-	font-size: 13px;
-	
+    margin-top: 8px;
+    font-size: 13px;
 }
-
 .presosDetalle span {
-	font-weight:700;
+    font-weight: 700;
 }
-
-#procesados{
-	text-align:right;
-	float:right;
+#procesados {
+    text-align: right;
+    float: right;
 }
-
 #condenados {
-	float:left;
+    float: left;
 }
-
 #condenadosPorcentaje {
-	line-height:400%;
-	font-size: 20px;
-	color:#C20505;	
+    line-height: 400%;
+    font-size: 20px;
+    color: #C20505;
 }
-
 #procesadosPorcentaje {
-	line-height:400%;
-	font-size: 20px;
-	color:#E79191;
+    line-height: 400%;
+    font-size: 20px;
+    color: #E79191;
 }
-
 #torta {
-	width: 92px;
-	height: 92px;
-	border:#e6e6e6 15px solid;
-	background:#FFFFFF;
-	-webkit-border-radius: 1000px;
-	-moz-border-radius: 1000px;
-	border-radius: 1000px;
-	position:relative;
-	left:22%;
-	top:25px;
+    width: 92px;
+    height: 92px;
+    border: #e6e6e6 15px solid;
+    background: #FFFFFF;
+    -webkit-border-radius: 1000px;
+    -moz-border-radius: 1000px;
+    border-radius: 1000px;
+    position: relative;
+    left: 22%;
+    top: 25px;
 }
-
 #ano {
-	position: relative;
-	top:35%;
-	right:32%;
-	text-align:center;
+    position: relative;
+    top: 35%;
+    right: 32%;
+    text-align: center;
 }
-
-
 /*ESTILOS BARRAS*/
 
 #barras {
-	border-top: 1px solid #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;
-	border-left: 1px solid #CCCCCC;
-	width:346px;
-	height:720px;
-	float: left;
-	/*background:#f0f0f0;*/
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    width: 346px;
+    height: 720px;
+    float: left;
+    /*background:#f0f0f0;*/
 }
-
 #barrasContainer {
-	height:600px;
-	padding:23px 19px 0px 19px;
+    height: 600px;
+    padding: 23px 19px 0px 19px;
 }
-
 #barrasProvincias {
-	font-family:"Roboto", sans-serif;
-	font-size:12px;
-	height:590px;
-	float:left;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    height: 590px;
+    float: left;
 }
-
 #barrasProvincias div {
-	margin-bottom:9px;
+    margin-bottom: 9px;
 }
-
 #barrasPuras {
-	padding-top:4px;
-	position:absolute;	
-	padding-left: 95px;
-	width:150px;
-	height:590px;
-	float:left;
+    padding-top: 4px;
+    position: absolute;
+    padding-left: 95px;
+    width: 150px;
+    height: 590px;
+    float: left;
 }
-
 #barrasNumeros {
-	text-align:right;
-	font-family:"Roboto", sans-serif;
-	font-weight:800;
-	font-size:12px;
-	height:590px;
-	float:right;
+    text-align: right;
+    font-family: "Roboto", sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    height: 590px;
+    float: right;
 }
-
 #barrasNumeros div {
-	margin-bottom:9px;
+    margin-bottom: 9px;
 }
-
 #barrasNumeros div[data-info="0"]:after {
-	color: #797979;
-	font-family: 'Roboto', sans-serif;
-	font-weight:300;
-	content: "S/D";
+    color: #797979;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    content: "S/D";
 }
-
 .barsBlancas {
-	position: absolute;
-	z-index: 0;
+    position: absolute;
+    z-index: 0;
 }
-
 .barsBlancas div {
-	height:10px;
-	width:137px;
-	background:#E6E6E6;
-	margin-bottom:15px;
+    height: 10px;
+    width: 137px;
+    background: #E6E6E6;
+    margin-bottom: 15px;
 }
-
 [id|='bars'] {
     width: 137px;
-    position:absolute;
+    position: absolute;
     z-index: 1000;
 }
-
 [id|='bars'] .spf {
     background-color: #2464C5;
- 
 }
-
 [id|='bars'] .spp {
     background-color: #CD4242;
 }
-
 [id|='bars'] .bar {
     margin-bottom: 15px;
-    height: 10px; 
+    height: 10px;
 }
-
 /*ESTILOS MAPA*/
 
 #back {
-	display: block;
-	left: 576px;
-	position: absolute;
-	cursor:pointer;
+    display: block;
+    left: 576px;
+    position: absolute;
+    cursor: pointer;
 }
-
 #back.hidden {
-	display: none;
+    display: none;
 }
-
 #map {
-	display: inline-block;
-	margin-left: 30px;
+    display: inline-block;
+    margin-left: 30px;
 }
-
 #map svg {
     overflow: hidden;
 }
 #map path.zoomout {
-  cursor: url(images/zoomin.cur), pointer;
-  cursor: -webkit-zoom-in;
-  cursor: -moz-zoom-in;
+    cursor: url(images/zoomin.cur), pointer;
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
 }
 #map g.arc.hidden {
     opacity: 0;
@@ -505,13 +440,16 @@ h4 {
     stroke-width: .5px;
 }
 #map .land:hover {
-	 fill: rgba(195, 195, 195, .8);
+    fill: rgba(195, 195, 195, .8);
+}
+#map .land.amba {
+	fill: rgba(0, 0, 0, .001);
 }
 #map .marker {
     pointer-events: none;
 }
 #map .marker .inside {
-	pointer-events: visible;
+    pointer-events: visible;
 }
 #map .marker .select {
     fill: black;
@@ -528,13 +466,13 @@ h4 {
 }
 #map .condenados.spf {
     fill: #000000;
-    stroke:#ffffff;
+    stroke: #ffffff;
     stroke-width: .1px;
     opacity: 0.8;
 }
 #map .procesados.spf {
     fill: #2464C5;
-    stroke:#ffffff;
+    stroke: #ffffff;
     stroke-width: .1px;
     opacity: 0.8;
 }
