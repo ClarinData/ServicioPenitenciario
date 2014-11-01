@@ -147,7 +147,7 @@ queue()
                         .transition()
                         .duration(duration)
                         .attr("d", function(g) {
-                            var m = (d) ? (23000/area)/zoom/7 : 0;
+                            var m = (d) ? (37000/area)/zoom/6 : 0;
                                 arc = (m) ? radiusCalc(m, g.data.total) : null;
                             return (d) ? arc(g) : '';
                         });
