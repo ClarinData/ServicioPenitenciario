@@ -210,8 +210,8 @@ queue()
             .on("mousemove", function() {
                 var tooltip = d3.select("#tooltip");
                 var left = d3.event.pageX + 10;
-                var top = d3.event.pageY - 10 - tooltip.node().clientHeight;
-                console.log(top)
+                var top = (d3.event.pageY < 610) ? d3.event.pageY + 10 : d3.event.pageY - 10 - tooltip.node().clientHeight;
+                console.log(d3.event.pageX)
                 return tooltip
                         .style("top", top + "px")
                         .style("left", left + "px");
