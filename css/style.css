@@ -266,6 +266,7 @@ input {
     display: none;
 }
 
+
 #separadorTooltip {
 	width:24px;
 	height:70px;
@@ -305,12 +306,13 @@ h4 {
 }
 #procesados {
 	padding: 0px;
-    text-align: right;
-    float: right;
+    text-align: left;
+    float: left;
 }
 #condenados {
 	padding: 0px;
-    float: left;
+    float: rigth;
+    text-align: right;
 }
 #condenadosPorcentaje {
     font-size: 20px;
