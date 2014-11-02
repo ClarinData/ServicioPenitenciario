@@ -114,7 +114,7 @@ var es_ES = {
             })(window);
      
       queue()
-          .defer(d3.tsv, "data/estadisticas_jurisdiccionales.tsv")
+          .defer(d3.tsv, "data/estadisticas_jurisdiccionales.tsv?timestamp=201411010935")
           .awaitAll(function(error, data) {
             data = data[0].sort(function (a,b) {
                 return d3.ascending(a.Jurisdiccion, b.Jurisdiccion) || d3.ascending(a.Provincia, b.Provincia);
