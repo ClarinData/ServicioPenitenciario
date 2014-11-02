@@ -36,7 +36,7 @@ groupData.Ciudades = map.append("g")
          .style("opacity", 0);
 
 var radiusCalc = function (value, total) {
-        var radius = value * Math.sqrt(total / Math.PI)
+        var radius = value * Math.sqrt(total / Math.PI);
         return d3.svg.arc()
             .outerRadius(radius - radius / 3)
             .innerRadius(radius);
