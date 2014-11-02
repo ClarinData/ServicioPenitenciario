@@ -33,13 +33,14 @@ groupData.Provincias = map.append("g")
 
 groupData.Ciudades = map.append("g")
          .attr("class","Ciudades")
-         .style("opacity", 0);
+         .style("opacity", 0)
+         .style("pointer-events", "none");
 
 var radiusCalc = function (value, total) {
         var radius = value * Math.sqrt(total / Math.PI);
         return d3.svg.arc()
-            .outerRadius(radius - radius / 3)
-            .innerRadius(radius);
+            .outerRadius(radius)
+            .innerRadius(radius - radius / 3);
     };
 
 var backBtn = d3.select("#back")
@@ -51,8 +52,8 @@ queue()
   .defer(d3.json, "data/argentina_indec.json?timestamp=201411010935")
   .defer(d3.tsv, "data/condenados_procesados.tsv?timestamp=201411010935")
   .awaitAll(function(error, data) {
-    console.log(error || '');
-
+    if (error) console.log(error);
+    
     (function (g, projection, json) {
         var mapData = topojson
                         .feature(json, json.objects.provincias)
@@ -137,21 +138,26 @@ queue()
 
 
                     (function (cities, area) {
+
+                        cities.transition()                        
+                                .style("pointer-events", function () {
+                                    return (d) ? "auto" : "none";
+                                })
+                                .duration(duration)
+                                .ease("cubic")
+                                .style("opacity", function () {
+                                    return (!d) ? 0 : 1;
+                                }),
+
                         cities.selectAll("path")
                             .transition()
                             .duration(duration)
                             .ease("cubic")
                             .attr("d", function(g) {
                                 var ajust = (d && d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
-                                    m = (d) ? (30000/area)/zoom/ajust : 0,
+                                    m = (d) ? (37000/area)/zoom/ajust : 0,
                                     arc = (m) ? radiusCalc(m, g.data.total) : null;
                                 return (d) ? arc(g) : '';
-                            })
-                            .style("stroke-width", function(g) {
-                                var ajust = (d && d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
-                                    m = (d) ? (30000/area)/zoom/ajust : 0,
-                                    width = 0.3;
-                                return (d) ? width*m : 0;
                             });
 
                         cities.selectAll("circle.select")
@@ -160,19 +166,84 @@ queue()
                             .ease("cubic")
                             .attr("r", function(g) {
                                 var ajust = (d && d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 33 : 2,
-                                    m = (d) ? (30000/area)/zoom/ajust : 0,
+                                    m = (d) ? (37000/area)/zoom/ajust : 0,
                                     r = 0.5;
                                 return (d) ? r*m : 0;
                             });
 
+                        cities.selectAll("path")
+                            .transition()
+                            .duration(duration)
+                            .ease("cubic")
+                            .attr("d", function(g) {
+                                var ajust = (d && d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
+                                    m = (d) ? (37000/area)/zoom/ajust : 0,
+                                    arc = (m) ? radiusCalc(m, g.data.total) : null;
+                                return (d) ? arc(g) : '';
+                            });
+
+                        cities.selectAll("circle.pointer")
+                            .on("mouseenter", function (g) {
+                                if (g) {
+                                    (function (tooltip, jurisdiccion) {
+                                        if (jurisdiccion == g.Jurisdiccion.toLowerCase()) {
+                                            tooltip
+                                                .classed("spp", jurisdiccion == "spp")
+                                                .classed("spf", jurisdiccion == "spf");
+                                            tooltip.select("#presosTotales span")
+                                                .text(g.Total);
+                                            tooltip.select("#tooltip > h4")
+                                                .text(g.Ubicación);
+                                            tooltip.select("#condenados > span:nth-child(2)")
+                                                .text(g.Condenados);
+                                            tooltip.select("#condenadosPorcentaje")
+                                                .text(function () {
+                                                    var condenados = g.Condenados,
+                                                        total = g.Total;
+                                                        return Math.round(condenados/total*100) + "%";
+                                                });
+                                            tooltip.select("#procesados > span:nth-child(2)")
+                                                .text(g.Procesados);
+                                            tooltip.select("#procesadosPorcentaje")
+                                                .text(function () {
+                                                    var procesados = g.Procesados,
+                                                        total = g.Total;
+                                                        return Math.round(procesados/total*100) + "%";
+                                                });
+                                            tooltip.classed("hidden", false);
+                                        }
+                                    })(
+                                        d3.select("#tooltip"),
+                                        d3.select("#formSelector input[type='radio']:checked").property("value")
+                                    );
+                                }
+                            })
+                            .on("mousemove", function() {
+                                (function(tooltip) {
+                                    var left = d3.event.pageX + 10;
+                                    var top = (d3.event.pageY < 710) ? d3.event.pageY + 10 : d3.event.pageY - 10 - tooltip.node().clientHeight;
+                                    tooltip.style("top", top + "px")
+                                        .style("left", left + "px");
+                                })(d3.select("#tooltip"));                
+                            })
+                            .on("mouseleave", function () {
+                                d3.select("#tooltip")
+                                    .classed("hidden", true);
+                            })
+                            .transition()
+                            .duration(duration)
+                            .ease("cubic")
+                            .attr("r", function(g) {
+                                var ajust = (d && d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 33 : 3.5,
+                                    m = (d) ? (37000/area)/zoom/ajust : 0,
+                                    arc = (m) ? radiusCalc(m, g.Total) : 0,
+                                    ri = (arc) ? arc.innerRadius() : 0,
+                                    ro = (arc) ? arc.outerRadius() : 0;
+                                return (d) ? Math.max(ri(),ro())*m : 0;
+                            });
+
                     })(
-                        groupData['Ciudades']
-                                    .transition()
-                                    .duration(duration)
-                                    .ease("cubic")
-                                    .style("opacity", function () {
-                                        return (!d) ? 0 : 1;
-                                    }),
+                        groupData['Ciudades'],
                         path.area(d)
                     );
 
@@ -242,14 +313,20 @@ queue()
                 return d.value;
             });
 
-        var markerCenter = function(marker, r) {
+        var markerCenter = function(marker, r, data, arc) {
             var thisMarker = marker.append("g")
                                    .attr("class", function (d) {
                                         return "circle " + d.Jurisdiccion.toLowerCase();
                                    });
+
             thisMarker.append("circle")
                 .attr("class", "select")
                 .attr("r", r);
+
+            thisMarker.append("circle")
+                                .datum(marker.datum())
+                                .attr("class", "pointer")
+                                .attr("r", arc.outerRadius());
             return thisMarker;
         };
 
@@ -308,11 +385,9 @@ queue()
 
                         (function (marker, arc) {
                             var centerCircleRadius = (parseInt(thisMarker.Total) == 0) ? 0 : (level=='Provincias') ? 1.5 : 0.5;
-                            markerCenter(marker, centerCircleRadius);
                             (function (g) {
                                 g.append("path")
                                     .attr("d", function(d) {
-                                        // d.total = parseInt(thisMarker.Total);
                                         return (d.value) ? arc(d) : '';
                                     });
 
@@ -337,6 +412,7 @@ queue()
                                                      jurisdiccion;
                                     })
                             );
+                            markerCenter(marker, centerCircleRadius, marker.datum(), arc);
                         })(
                             // marker =
                             g.append("g")
