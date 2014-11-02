@@ -99,6 +99,8 @@ queue()
 
                     backBtn.classed("hidden", !zoom);
 
+                    d3.select("#tooltip").classed("hidden", true);
+
                     var b = path.bounds(d), // calculate bounding box
                         zoom = 0.95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
                         translate = (d) ? [-(b[1][0] + b[0][0]) / 2, -(b[1][1] + b[0][1]) / 2] : [-width / 2, -height / 2],
@@ -178,35 +180,35 @@ queue()
                 
             })
             .on("mouseenter", function (d) {
+                if (!g.select("path.zoomin").node()) {
+                    (function (tooltip, jurisdiccion) {
+                        tooltip.select("#presosTotales span")
+                            .text(d.data[jurisdiccion].Total);
+                        tooltip.select("#tooltip > h4")
+                            .text(d.properties.administrative_area[0].name);
+                        tooltip.select("#condenados > span:nth-child(2)")
+                            .text(d.data[jurisdiccion].Condenados);
+                        tooltip.select("#condenadosPorcentaje")
+                            .text(function (g) {
+                                var condenados = d.data[jurisdiccion].Condenados,
+                                    total = d.data[jurisdiccion].Total;
+                                    return Math.round(condenados/total*100) + "%";
+                            });
+                        tooltip.select("#procesados > span:nth-child(2)")
+                            .text(d.data[jurisdiccion].Procesados);
+                        tooltip.select("#procesadosPorcentaje")
+                            .text(function (g) {
+                                var procesados = d.data[jurisdiccion].Procesados,
+                                    total = d.data[jurisdiccion].Total;
+                                    return Math.round(procesados/total*100) + "%";
+                            });
+                        tooltip.classed("hidden", false);
 
-                (function (tooltip, jurisdiccion) {
-                    tooltip.select("#presosTotales span")
-                        .text(d.data[jurisdiccion].Total);
-                    tooltip.select("#tooltip > h4")
-                        .text(d.properties.administrative_area[0].name);
-                    tooltip.select("#condenados > span:nth-child(2)")
-                        .text(d.data[jurisdiccion].Condenados);
-                    tooltip.select("#condenadosPorcentaje")
-                        .text(function (g) {
-                            var condenados = d.data[jurisdiccion].Condenados,
-                                total = d.data[jurisdiccion].Total;
-                                return Math.round(condenados/total*100) + "%";
-                        });
-                    tooltip.select("#procesados > span:nth-child(2)")
-                        .text(d.data[jurisdiccion].Procesados);
-                    tooltip.select("#procesadosPorcentaje")
-                        .text(function (g) {
-                            var procesados = d.data[jurisdiccion].Procesados,
-                                total = d.data[jurisdiccion].Total;
-                                return Math.round(procesados/total*100) + "%";
-                        });
-                    tooltip.classed("hidden", false);
-
-                })(
-                    d3.select("#tooltip"),
-                    d3.select("#formSelector input[type='radio']:checked").property("value")
-                );
-
+                    })(
+                        d3.select("#tooltip"),
+                        d3.select("#formSelector input[type='radio']:checked").property("value")
+                    );
+                };
             })
             .on("mousemove", function() {
                 (function(tooltip) {
