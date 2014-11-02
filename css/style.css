@@ -466,9 +466,6 @@ h4 {
 #map .marker {
     pointer-events: none;
 }
-#map .marker .inside {
-    pointer-events: visible;
-}
 #map .marker .select {
     fill: black;
 }
