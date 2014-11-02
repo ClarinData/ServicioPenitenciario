@@ -97,14 +97,14 @@ queue()
             .on("click", function (d) {
                 if (!d || (d && d.zoom)) {
 
-                    backBtn.classed("hidden", !zoom);
-
                     d3.select("#tooltip").classed("hidden", true);
 
                     var b = path.bounds(d), // calculate bounding box
                         zoom = 0.95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
                         translate = (d) ? [-(b[1][0] + b[0][0]) / 2, -(b[1][1] + b[0][1]) / 2] : [-width / 2, -height / 2],
                         duration = 500;
+
+                    backBtn.classed("hidden", !zoom);
 
                     map.transition()
                         .duration(duration)
