@@ -16,6 +16,7 @@
     font-weight: 300;
     font-size: 25px;
 }
+
 body {
     margin: 0px;
     padding: 0px;
@@ -261,9 +262,9 @@ input {
     pointer-events: none;
     z-index: 1001;
 }
-/*#tooltip.hidden {
+#tooltip.hidden {
     display: none;
-}*/
+}
 
 #separadorTooltip {
 	width:24px;
