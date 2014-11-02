@@ -182,6 +182,9 @@ queue()
             .on("mouseenter", function (d) {
                 if (!g.select("path.zoomin").node()) {
                     (function (tooltip, jurisdiccion) {
+                        tooltip
+                            .classed("spp", jurisdiccion == "spp")
+                            .classed("spf", jurisdiccion == "spf");
                         tooltip.select("#presosTotales span")
                             .text(d.data[jurisdiccion].Total);
                         tooltip.select("#tooltip > h4")
