@@ -194,11 +194,7 @@ queue()
                         return Math.round(procesados/total*100) + "%";
                 });
 
-                // tooltip.transition()
-                //         // .ease("cubic")
-                //         .duration(500)
-                //         .style("left", pointer[0] + 150 + "px")
-                //         .style("top", pointer[1] - 50 + "px");
+                tooltip.classed("hidden", false);
 
 
             })
