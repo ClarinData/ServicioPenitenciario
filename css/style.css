@@ -257,16 +257,25 @@ input {
     width: 193px;
     border: 1px #CCCCCC solid;
     background: #ffffff;
-    padding: 8px;
+    padding: 8px 8px 0px 8px;
     pointer-events: none;
     z-index: 1001;
 }
-#tooltip.hidden {
+/*#tooltip.hidden {
     display: none;
+}*/
+
+#separadorTooltip {
+	width:24px;
+	height:70px;
+	border-right: 1px solid #CCCCCC;
+	float:left;
+	
 }
+
 #tooltipContainer {
     width: 193px;
-    height: 160px;
+    height: 100px;
 }
 h4 {
     text-transform: uppercase;
@@ -303,27 +312,14 @@ h4 {
     float: left;
 }
 #condenadosPorcentaje {
-    line-height: 388%;
     font-size: 20px;
     color: #C20505;
 }
 #procesadosPorcentaje {
-    line-height: 388%;
     font-size: 20px;
     color: #E79191;
 }
-#torta {
-    width: 75px;
-    height: 75px;
-    border: #e6e6e6 15px solid;
-    background: #FFFFFF;
-    -webkit-border-radius: 1000px;
-    -moz-border-radius: 1000px;
-    border-radius: 1000px;
-    position: relative;
-    left: 22%;
-    top: 25px;
-}
+
 #ano {
     position: relative;
     bottom: 118%;
