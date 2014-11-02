@@ -259,9 +259,9 @@ input {
     background: #ffffff;
     padding: 8px;
 }
-/*#tooltip.hidden {
+#tooltip.hidden {
     display: none;
-}*/
+}
 #tooltipContainer {
     width: 193px;
     height: 160px;
