@@ -213,7 +213,7 @@ queue()
             .on("mousemove", function() {
                 (function(tooltip) {
                     var left = d3.event.pageX + 10;
-                    var top = (d3.event.pageY < 610) ? d3.event.pageY + 10 : d3.event.pageY - 10 - tooltip.node().clientHeight;
+                    var top = (d3.event.pageY < 710) ? d3.event.pageY + 10 : d3.event.pageY - 10 - tooltip.node().clientHeight;
                     tooltip.style("top", top + "px")
                         .style("left", left + "px");
                 })(d3.select("#tooltip"));                
