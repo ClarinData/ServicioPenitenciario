@@ -58,7 +58,7 @@ queue()
                         .feature(json, json.objects.provincias)
                         .features
                         .sort(function (d) {
-                            return (d.properties.administrative_area[0].id == "AMBA") ? 1 : 0;
+                            return (d.properties.administrative_area[0].id == "AMBA" || d.properties.administrative_area[0].id == "CAB") ? 1 : 0;
                         });
 
         g.selectAll("undefined")
@@ -142,13 +142,13 @@ queue()
                             .duration(duration)
                             .ease("cubic")
                             .attr("d", function(g) {
-                                var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
+                                var ajust = (d && d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
                                     m = (d) ? (30000/area)/zoom/ajust : 0,
                                     arc = (m) ? radiusCalc(m, g.data.total) : null;
                                 return (d) ? arc(g) : '';
                             })
                             .style("stroke-width", function(g) {
-                                var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
+                                var ajust = (d && d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
                                     m = (d) ? (30000/area)/zoom/ajust : 0,
                                     width = 0.3;
                                 return (d) ? width*m : 0;
@@ -159,7 +159,7 @@ queue()
                             .duration(duration)
                             .ease("cubic")
                             .attr("r", function(g) {
-                                var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 33 : 2,
+                                var ajust = (d && d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 33 : 2,
                                     m = (d) ? (30000/area)/zoom/ajust : 0,
                                     r = 0.5;
                                 return (d) ? r*m : 0;
@@ -180,33 +180,34 @@ queue()
                 
             })
             .on("mouseenter", function (d) {
-                if (!g.select("path.zoomin").node()) {
+                if (d.data && !g.select("path.zoomin").node()) {
                     (function (tooltip, jurisdiccion) {
-                        tooltip
-                            .classed("spp", jurisdiccion == "spp")
-                            .classed("spf", jurisdiccion == "spf");
-                        tooltip.select("#presosTotales span")
-                            .text(d.data[jurisdiccion].Total);
-                        tooltip.select("#tooltip > h4")
-                            .text(d.properties.administrative_area[0].name);
-                        tooltip.select("#condenados > span:nth-child(2)")
-                            .text(d.data[jurisdiccion].Condenados);
-                        tooltip.select("#condenadosPorcentaje")
-                            .text(function (g) {
-                                var condenados = d.data[jurisdiccion].Condenados,
-                                    total = d.data[jurisdiccion].Total;
-                                    return Math.round(condenados/total*100) + "%";
-                            });
-                        tooltip.select("#procesados > span:nth-child(2)")
-                            .text(d.data[jurisdiccion].Procesados);
-                        tooltip.select("#procesadosPorcentaje")
-                            .text(function (g) {
-                                var procesados = d.data[jurisdiccion].Procesados,
-                                    total = d.data[jurisdiccion].Total;
-                                    return Math.round(procesados/total*100) + "%";
-                            });
-                        tooltip.classed("hidden", false);
-
+                        if (d.data[jurisdiccion]) {
+                            tooltip
+                                .classed("spp", jurisdiccion == "spp")
+                                .classed("spf", jurisdiccion == "spf");
+                            tooltip.select("#presosTotales span")
+                                .text(d.data[jurisdiccion].Total);
+                            tooltip.select("#tooltip > h4")
+                                .text(d.properties.administrative_area[0].name);
+                            tooltip.select("#condenados > span:nth-child(2)")
+                                .text(d.data[jurisdiccion].Condenados);
+                            tooltip.select("#condenadosPorcentaje")
+                                .text(function (g) {
+                                    var condenados = d.data[jurisdiccion].Condenados,
+                                        total = d.data[jurisdiccion].Total;
+                                        return Math.round(condenados/total*100) + "%";
+                                });
+                            tooltip.select("#procesados > span:nth-child(2)")
+                                .text(d.data[jurisdiccion].Procesados);
+                            tooltip.select("#procesadosPorcentaje")
+                                .text(function (g) {
+                                    var procesados = d.data[jurisdiccion].Procesados,
+                                        total = d.data[jurisdiccion].Total;
+                                        return Math.round(procesados/total*100) + "%";
+                                });
+                            tooltip.classed("hidden", false);
+                        }
                     })(
                         d3.select("#tooltip"),
                         d3.select("#formSelector input[type='radio']:checked").property("value")
