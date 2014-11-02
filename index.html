@@ -6,9 +6,8 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700,900' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Droid+Serif:700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/style.css">
-		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-		
+		<link rel="stylesheet" href="css/style.css?timestamp=201411010935">
+		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->		
 	</head>
 
 	<body>
@@ -30,7 +29,7 @@
 			<p class="presosDetalle" id="condenados">Condenados<br /><span>20333</span><br /><span id="condenadosPorcentaje">70%</span></p>
 			<p class="presosDetalle" id="procesados">Procesados<br /><span>20333</span><br /><span id="procesadosPorcentaje">30%</span></p>
 			<div id="torta">
-				<p id="ano">Año 2012</p>
+				<p id="ano">Año 2013</p>
 			</div>
 			</div>
 			
@@ -128,30 +127,11 @@
 			<p id="data"><a href="https://aba197bd459fb25c3b547faacadbbe52e99bb765.googledrive.com/host/0B1NOPX9UemrNaDRic1l1VTlHQnc/" target="blank"> DESCARGAR DATOS </a></p>
 			<p id="fuentes"><a href="https://docs.google.com/spreadsheets/d/1L8xZUivlYdT-roFim--zwGxn62VifqEQ04_4-9bXM-Y/pubhtml?gid=0&single=true" target="blank">FUENTES</a></p>
 		</footer>
-	 	<script src="js/d3.v3.min.js"></script>
-    	<script src="js/d3.geo.projection.v0.min.js"></script>
-    	<script src="js/topojson.v1.min.js"></script>
-    	<script src="js/queue.v1.min.js"></script>
-    	<script src="js/barras.js"></script>
-    	<script src="js/map.js"></script>
-    	<script type="text/javascript">
-    	map.selectAll(".spp").classed("hidden", true);
-
-    	var hideSppSpf = function (status) {
-    		map.selectAll(".spf").classed("hidden", !status);
-            map.selectAll(".spp").classed("hidden", status);
-    	};
-        d3.select("#back").on("click", function () {
-            groupMap.select("path").on("click").apply(this,null);
-        });
-        d3.select("#spf").on("click", function () {
-            hideSppSpf(true);
-        });
-        d3.select("#spp").on("click", function () {
-            hideSppSpf(false);
-        });
-        d3.select("#alerta").style("display", "none");
-    </script>
-
+	 	<script src="js/d3.v3.min.js?timestamp=201411010935"></script>
+    	<script src="js/d3.geo.projection.v0.min.js?timestamp=201411010935"></script>
+    	<script src="js/topojson.v1.min.js?timestamp=201411010935"></script>
+    	<script src="js/queue.v1.min.js?timestamp=201411010935"></script>
+    	<script src="js/barras.js?timestamp=201411010935"></script>
+    	<script src="js/map.js?timestamp=201411010935"></script>
 	</body>
 </html>

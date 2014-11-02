@@ -48,8 +48,8 @@ var backBtn = d3.select("#back")
                 });
 
 queue()
-  .defer(d3.json, "data/argentina_indec.json")
-  .defer(d3.tsv, "data/condenados_procesados.tsv")
+  .defer(d3.json, "data/argentina_indec.json?timestamp=201411010935")
+  .defer(d3.tsv, "data/condenados_procesados.tsv?timestamp=201411010935")
   .awaitAll(function(error, data) {
     console.log(error || '');
 
@@ -150,13 +150,13 @@ queue()
                             .ease("cubic")
                             .attr("d", function(g) {
                                 var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
-                                    m = (d) ? (37000/area)/zoom/ajust : 0,
+                                    m = (d) ? (30000/area)/zoom/ajust : 0,
                                     arc = (m) ? radiusCalc(m, g.data.total) : null;
                                 return (d) ? arc(g) : '';
                             })
                             .style("stroke-width", function(g) {
                                 var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 100 : 6,
-                                    m = (d) ? (37000/area)/zoom/ajust : 0,
+                                    m = (d) ? (30000/area)/zoom/ajust : 0,
                                     width = 0.3;
                                 return (d) ? width*m : 0;
                             });
@@ -167,13 +167,58 @@ queue()
                             .ease("cubic")
                             .attr("r", function(g) {
                                 var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 33 : 2,
-                                    m = (d) ? (37000/area)/zoom/ajust : 0,
+                                    m = (d) ? (30000/area)/zoom/ajust : 0,
                                     r = 0.5;
                                     console.log(m,r)
                                 return (d) ? r*m : 0;
                             });
                 };
                 
+            })
+            .on("mouseenter", function (d) {
+                var jurisdiccion = d3.select("#formSelector input[type='radio']:checked").property("value");
+                    // pointer = d3.mouse(this);
+                    // console.log(pointer);
+
+                var tooltip = d3.select("#tooltip");
+                console.log(d)
+
+                tooltip.select("#presosTotales span").text(d.data[jurisdiccion].Total);
+                tooltip.select("#tooltip > h4").text(d.properties.administrative_area[0].name);
+                tooltip.select("#condenados > span:nth-child(2)").text(d.data[jurisdiccion].Condenados);
+                tooltip.select("#condenadosPorcentaje").text(function (g) {
+                    var condenados = d.data[jurisdiccion].Condenados,
+                        total = d.data[jurisdiccion].Total;
+                        return Math.round(condenados/total*100) + "%";
+                });
+                tooltip.select("#procesados > span:nth-child(2)").text(d.data[jurisdiccion].Procesados);
+                tooltip.select("#procesadosPorcentaje").text(function (g) {
+                    var procesados = d.data[jurisdiccion].Procesados,
+                        total = d.data[jurisdiccion].Total;
+                        return Math.round(procesados/total*100) + "%";
+                });
+
+                // tooltip.transition()
+                //         // .ease("cubic")
+                //         .duration(500)
+                //         .style("left", pointer[0] + 150 + "px")
+                //         .style("top", pointer[1] - 50 + "px");
+
+                tooltip.classed("hidden", false);
+
+            })
+            .on("mousemove", function() {
+                var tooltip = d3.select("#tooltip");
+                var left = d3.event.pageX + 10;
+                var top = d3.event.pageY - 10 - tooltip.node().clientHeight;
+                console.log(top)
+                return tooltip
+                        .style("top", top + "px")
+                        .style("left", left + "px");
+            })
+            .on("mouseleave", function (d) {
+                d3.select("#tooltip")
+                    .classed("hidden", true);
             });
     })(
         groupMap,
@@ -293,9 +338,14 @@ queue()
                                     .attr("transform", "translate(" + markerPoint[0]
                                                      + "," + markerPoint[1] + ")")
                                     .attr("id", thisMarker.id)
-                                    .attr("class", "marker")
-                                    .on("click", function(d) {
-                                        console.log(!select.classed("active") && d);
+                                    .attr("class", "marker " + thisMarker.Provincia.toLowerCase().replace(/\s+/g,"_"))
+                                    .each(function (d) {
+                                        if (level=='Provincias' && jurisdiccion) {
+                                            var polygonData = d3.select("path.land." + thisMarker.Provincia.toLowerCase().replace(/\s+/g,"_"))
+                                                                .datum();
+                                            polygonData.data = polygonData.data || {};
+                                            polygonData.data[jurisdiccion] = d;
+                                        }
                                     }),
                             // arc =
                             radiusCalc(radiusMultiplier[jurisdiccion], thisMarker.Total)
@@ -319,13 +369,9 @@ queue()
         groupData,
         // var projection =
         projection,
+        // var data =
         data[1]
     );
-
-    /* Ajust heigth */
-
-    d3.select(self.frameElement)
-        .style("height", height + "px");
 
     /* Default marker ON & OFF from FORM defaul value */
 
@@ -340,3 +386,38 @@ queue()
     );
 
 });
+
+/* fire back on button */
+
+d3.select("#back")
+    .on("click", function() {
+        groupMap.select("path")
+            .on("click")
+            .apply(this, null);
+    });
+
+/* Defaults */
+
+// hide view function
+var hideSppSpf = function(status) {
+    map.selectAll(".spf")
+        .classed("hidden", !status);
+    map.selectAll(".spp")
+        .classed("hidden", status);
+};
+
+//hide SPF
+d3.select("#spf")
+    .on("click", function() {
+        hideSppSpf(true);
+    });
+
+//hide SPF
+d3.select("#spp")
+    .on("click", function() {
+        hideSppSpf(false);
+    });
+
+//hide Alert
+d3.select("#alerta")
+    .style("display", "none");

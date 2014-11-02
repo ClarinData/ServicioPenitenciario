@@ -258,6 +258,8 @@ input {
     border: 1px #CCCCCC solid;
     background: #ffffff;
     padding: 8px;
+    pointer-events: none;
+    z-index: 1001;
 }
 #tooltip.hidden {
     display: none;
