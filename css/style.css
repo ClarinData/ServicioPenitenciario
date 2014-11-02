@@ -266,6 +266,22 @@ input {
     display: none;
 }
 
+#tooltip.spp #procesadosPorcentaje {
+    color: #CD4242;
+}
+
+#tooltip.spf #procesadosPorcentaje {
+    color: #2464C5;
+}
+
+#tooltip.spp #condenadosPorcentaje {
+    color: #000000;
+}
+
+#tooltip.spf #condenadosPorcentaje {
+    color: #000000;
+}
+
 #separadorTooltip {
 	width:24px;
 	height:70px;
