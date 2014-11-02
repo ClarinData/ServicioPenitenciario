@@ -169,7 +169,6 @@ queue()
                                 var ajust = (d.properties.administrative_area[0].id.toLowerCase() == "amba") ? 33 : 2,
                                     m = (d) ? (30000/area)/zoom/ajust : 0,
                                     r = 0.5;
-                                    console.log(m,r)
                                 return (d) ? r*m : 0;
                             });
                 };
@@ -177,11 +176,8 @@ queue()
             })
             .on("mouseenter", function (d) {
                 var jurisdiccion = d3.select("#formSelector input[type='radio']:checked").property("value");
-                    // pointer = d3.mouse(this);
-                    // console.log(pointer);
 
                 var tooltip = d3.select("#tooltip");
-                console.log(d)
 
                 tooltip.select("#presosTotales span").text(d.data[jurisdiccion].Total);
                 tooltip.select("#tooltip > h4").text(d.properties.administrative_area[0].name);
@@ -204,14 +200,12 @@ queue()
                 //         .style("left", pointer[0] + 150 + "px")
                 //         .style("top", pointer[1] - 50 + "px");
 
-                tooltip.classed("hidden", false);
 
             })
             .on("mousemove", function() {
                 var tooltip = d3.select("#tooltip");
                 var left = d3.event.pageX + 10;
                 var top = (d3.event.pageY < 610) ? d3.event.pageY + 10 : d3.event.pageY - 10 - tooltip.node().clientHeight;
-                console.log(d3.event.pageX)
                 return tooltip
                         .style("top", top + "px")
                         .style("left", left + "px");
